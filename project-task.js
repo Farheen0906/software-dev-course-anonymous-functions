@@ -62,12 +62,19 @@ const todos = [
   3. Change the `completed` property to `true` for every task.
   */
 
+//This code updates the original array
+/* 
 todos.map((item) => item.completed = true);
 console.log("All Tasks Completed:", todos);
+*/
+
+const updatedArray = todos.map(item => {
+  return { ...item, completed: true }; // the spread operator ... copies all the existing properties
+});
+console.log("All Tasks Completed:", updatedArray);
 
 
   /*
-  
   🔹 Task 4: Combine Filters
   
   Step-by-Step:
@@ -75,16 +82,10 @@ console.log("All Tasks Completed:", todos);
   2. Then, sort the filtered results by priority using `sort()`.
   3. Use method chaining to perform both steps together.
   */
- //redefining the array of objects
- const todos1 = [
-    { task: "Wash the dishes", completed: false, priority: 3 },
-    { task: "Write a blog post", completed: true, priority: 1 },
-    { task: "Buy groceries", completed: false, priority: 2 },
-    { task: "Study JavaScript", completed: true, priority: 1 },
-    { task: "Walk the dog", completed: false, priority: 2 },
-  ];
 
-   console.log("Sorted Incomplete Tasks:",todos1.filter(status => status.completed=== false).sort((a,b)=>a.priority-b.priority));
+
+   console.log("Sorted Incomplete Tasks:",todos.filter(status => status.completed=== false).sort((a,b)=>a.priority-b.priority));
+
   // ============================================
   // 🧪 Console Test Your Work
   // ============================================
